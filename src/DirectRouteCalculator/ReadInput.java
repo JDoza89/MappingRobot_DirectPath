@@ -27,13 +27,15 @@ public class ReadInput {
 				Graph graph = new Graph(new Route(strLine));
 				RobotMovement rm = new RobotMovement(graph, new Route(strLine));
 				DirectPath dp = new DirectPath(rm);
-				for(int[] j : graph.getGraph()) {
+				//print graph
+				/*
+				 * for(int[] j : graph.getGraph()) {
 					for (int i : j) {
 						System.out.print(i);
 				        System.out.print("\t");
 				       }
 				       System.out.println();
-				   }
+				   }*/
 				dp.printPath();
 /*			st = new StringTokenizer(strLine,"\\s*;\\s+");
 			System.out.println(st.nextToken());

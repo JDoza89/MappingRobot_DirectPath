@@ -8,10 +8,16 @@ public class DirectPath implements PathInterface {
 	
 	private static Point endPoint;
 	private static ArrayList<String> directPath;
+	private String date; 
+	private String destination;
 	
 	DirectPath(RobotMovement r){
-		directPath = new ArrayList();
+		directPath = new ArrayList<String>();
 		this.setEndPoint(r.getEndPoint());
+		date = r.getRoute().getDate();
+		destination = r.getRoute().getDestination();
+		directPath.add(date);
+		directPath.add(destination);
 		setDirectPath(r.getStartPoint(), r.getEndPoint());
 	}
 	
@@ -38,7 +44,6 @@ public class DirectPath implements PathInterface {
 		E2.y > S.y && E1. y < S
 		*/
 		
-		System.out.println(start.y + " " + end.y + "\n" + start.x + " "+ end.x);
 		if(end.y > start.y) {
 			direction = "L" + (start.y - end.y);
 			directPath.add(direction);
@@ -56,7 +61,7 @@ public class DirectPath implements PathInterface {
 			}
 		}
 		else if(end.y <= start.y) {
-			direction = "R" + (end.y - start.y);
+			direction = "R" + (start.y - end.y);
 			directPath.add(direction);
 			if(end.x < start.x) {
 				direction = "L" + (start.x - end.x);
@@ -86,10 +91,11 @@ public class DirectPath implements PathInterface {
 
 	@Override
 	public void printPath() {
-		for(int i = 0; i < directPath.size(); i++) {
-			System.out.println(directPath.get(i));
+		System.out.print(date + "; " + destination + "; ");
+		for(int i = 2; i < directPath.size(); i++) {
+			System.out.print(directPath.get(i) + " ");
 		}
-		
+		System.out.println();
 	}
 
 }

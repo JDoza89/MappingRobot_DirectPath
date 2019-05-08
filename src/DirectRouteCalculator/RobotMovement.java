@@ -5,18 +5,25 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class RobotMovement implements Movement{
-	private static String facing = "W";
+	private static String facing;
 	ArrayList<String> faces = new ArrayList<String>(Arrays.asList("N", "W", "E", "S"));
 	private static Point startPoint;
 	private static Point currentPosition;
 	private static Point endPoint;
 	private Graph graph = null;
+	private Route route;
 	
 	RobotMovement(Graph g, Route r){
+		facing = "W";
 		graph = g;
 		startPoint = g.getStartPoint();
 		currentPosition = g.getStartPoint();
+		route =r;
 		setDirections(r);
+	}
+	
+	public Route getRoute() {
+		return route;
 	}
 	
 	public void setDirections(Route dir) {
@@ -49,24 +56,24 @@ public class RobotMovement implements Movement{
 	public Point moveLeft(int l) {
 
 		if(facing.equals("W")) {
-			graph.setPoint(currentPosition.x,currentPosition.y +l,1);
+			graph.setPoint(currentPosition.x,currentPosition.y +l,2);
 			currentPosition = new Point(currentPosition.x,currentPosition.y +l);
 			facing = "S";
 		}
 		else if(facing.equals("N")) {
-			graph.setPoint(currentPosition.x-l ,currentPosition.y,1);
+			graph.setPoint(currentPosition.x-l ,currentPosition.y,2);
 			currentPosition = new Point(currentPosition.x-l,currentPosition.y);
 			facing = "W";
 		}
 		
 		else if(facing.equals("E")) {
-			graph.setPoint(currentPosition.x,currentPosition.y-l,1);
+			graph.setPoint(currentPosition.x,currentPosition.y-l,2);
 			currentPosition = new Point(currentPosition.x,currentPosition.y-l);
 			facing = "N";
 		}
 		
 		else if(facing.equals("S")) {
-			graph.setPoint(currentPosition.x+l,currentPosition.y,1);
+			graph.setPoint(currentPosition.x+l,currentPosition.y,2);
 			currentPosition = new Point(currentPosition.x+l,currentPosition.y);
 			facing = "E";
 		}
@@ -78,24 +85,24 @@ public class RobotMovement implements Movement{
 public Point moveRight(int r) {
 		
 		if(facing.equals("W")) {
-			graph.setPoint(currentPosition.x,currentPosition.y - r, 1);
+			graph.setPoint(currentPosition.x,currentPosition.y - r, 2);
 			currentPosition = new Point(currentPosition.x,currentPosition.y -r);
 			facing = "N";
 		}
 		else if(facing.equals("N")) {
-			graph.setPoint(currentPosition.x + r,currentPosition.y,1);
+			graph.setPoint(currentPosition.x + r,currentPosition.y,2);
 			currentPosition = new Point(currentPosition.x +r,currentPosition.y);
 			facing = "E";
 		}
 		
 		else if(facing.equals("E")) {
-			graph.setPoint(currentPosition.x,currentPosition.y+r,1);
+			graph.setPoint(currentPosition.x,currentPosition.y+r,2);
 			currentPosition = new Point(currentPosition.x,currentPosition.y+r);
 			facing = "S";
 		}
 		
 		else if(facing.equals("S")) {
-			graph.setPoint(currentPosition.x-r,currentPosition.y,1);
+			graph.setPoint(currentPosition.x-r,currentPosition.y,2);
 			currentPosition = new Point(currentPosition.x-r,currentPosition.y);
 			facing = "W";
 		}
