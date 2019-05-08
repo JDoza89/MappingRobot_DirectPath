@@ -9,11 +9,12 @@ public class Graph implements GraphInterface{
 	
 	Graph(Route r){
 		directions = r;
-		createGraph();
+		createGraph(r.getTotalBlocks());
+		
 	}
 	
-	public void createGraph() {
-		graph = new int[100][100];
+	public void createGraph(int size) {
+		graph = new int[size *2][size*2];
 		
 		for(int i = 0; i < graph[0].length; i++) {
 			for(int j = 0; j < graph.length; j++) {

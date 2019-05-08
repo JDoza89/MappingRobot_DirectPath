@@ -11,7 +11,7 @@ public interface PathInterface {
 	
 	public void setEndPoint(Point p);
 	
-	public void setDirectPath(Point end);
+	public void setDirectPath(Point start, Point end);
 	
 	public ArrayList<String> getPath();
 	

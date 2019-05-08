@@ -25,8 +25,15 @@ public class ReadInput {
 				System.out.println(ss);
 			}*/
 				Graph graph = new Graph(new Route(strLine));
-				RobotMovement rm = new RobotMovement(graph);
+				RobotMovement rm = new RobotMovement(graph, new Route(strLine));
 				DirectPath dp = new DirectPath(rm);
+				for(int[] j : graph.getGraph()) {
+					for (int i : j) {
+						System.out.print(i);
+				        System.out.print("\t");
+				       }
+				       System.out.println();
+				   }
 				dp.printPath();
 /*			st = new StringTokenizer(strLine,"\\s*;\\s+");
 			System.out.println(st.nextToken());
@@ -60,7 +67,7 @@ public class ReadInput {
 	}
 */
 	public static void main(String[] args) {
-		//readFile("src//input.txt");
+		readFile("src//input.txt");
 				if(args.length == 0) {
 			System.out.println("Please type in file you would like to read");
 		}

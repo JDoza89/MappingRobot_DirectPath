@@ -49,7 +49,16 @@ public class Route implements RouteInterface{
 	public String[] getParsedDirections() {
 		return directionsList;
 	}
+
+	@Override
+	public int getTotalBlocks() {
+		int total = 0;
+		for(int i =0; i < directionsList.length; i++) {
+			total += Integer.parseInt(directionsList[i].substring(1));
+		}
+		return total;
+	}
 	
-	
+
 
 }

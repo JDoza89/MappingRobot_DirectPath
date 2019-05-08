@@ -13,4 +13,6 @@ public interface RouteInterface {
 	public void printRoute();
 	
 	public String[] getParsedDirections();
+	
+	public int getTotalBlocks();
 }

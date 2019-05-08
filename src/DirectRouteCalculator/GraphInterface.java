@@ -4,7 +4,7 @@ import java.awt.Point;
 
 public interface GraphInterface {
 	
-	public void createGraph();
+	public void createGraph(int size);
 	
 	public int[][] getGraph();
 	
