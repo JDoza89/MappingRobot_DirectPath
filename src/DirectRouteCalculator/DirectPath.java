@@ -11,8 +11,11 @@ public class DirectPath implements PathInterface {
 	private String date; 
 	private String destination;
 	
-	DirectPath(RobotMovement r){
+	DirectPath(){
 		directPath = new ArrayList<String>();
+	}
+	
+	public void setRobotMovement(RobotMovement r) {
 		this.setEndPoint(r.getEndPoint());
 		date = r.getRoute().getDate();
 		destination = r.getRoute().getDestination();
@@ -26,6 +29,7 @@ public class DirectPath implements PathInterface {
 	}
 	
 	public void setDirectPath(Point start, Point end) {
+		
 		String direction = "";
 		
 /*		Since our graph does not start at 0,0 and has no negative coordinates, we base out coordinates on:

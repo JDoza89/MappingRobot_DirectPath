@@ -13,11 +13,16 @@ public class RobotMovement implements Movement{
 	private Graph graph = null;
 	private Route route;
 	
-	RobotMovement(Graph g, Route r){
+	RobotMovement(){
 		facing = "W";
+	}
+	
+	public void setGraph(Graph g) {
 		graph = g;
 		startPoint = g.getStartPoint();
 		currentPosition = g.getStartPoint();
+	}
+	public void setRoute(Route r) {
 		route =r;
 		setDirections(r);
 	}
@@ -47,10 +52,6 @@ public class RobotMovement implements Movement{
 		if(faces.contains(s)) {
 			facing = s;
 		}
-	}
-	
-	public void setGraph(Graph g) {
-		graph = g;
 	}
 	
 	public Point moveLeft(int l) {
